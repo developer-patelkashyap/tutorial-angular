@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 
-import { Customer } from './CustomerApp.model';
+import { Customer } from './customer.model';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './CustomerApp.view.html',
+  templateUrl: './customer.view.html',
 })
-export class CustomerAppComponent {
-  title = 'CustomerApplication';
+export class CustomerComponent {
   customer: Customer = new Customer();
   customers: Array<Customer> = [];
 
