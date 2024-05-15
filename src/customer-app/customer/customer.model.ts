@@ -7,9 +7,9 @@ import {
 } from '@angular/forms';
 
 export class Customer {
-  customerCode: string = '';
-  customerName: string = '';
-  customerAmount: number = 0;
+  Code: string = '';
+  Name: string = '';
+  Amount: number = 0;
   customerFormGroup!: FormGroup;
 
   constructor() {

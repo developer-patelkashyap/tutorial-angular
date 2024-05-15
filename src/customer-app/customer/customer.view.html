@@ -3,21 +3,21 @@
   Customer Code:
   <input
     formControlName="CustomerCodeControl"
-    [(ngModel)]="customer.customerCode"
+    [(ngModel)]="customer.Code"
     type="text"
   />
   <br /><br />
   Customer Name:
   <input
     formControlName="CustomerNameControl"
-    [(ngModel)]="customer.customerName"
+    [(ngModel)]="customer.Name"
     type="text"
   />
   <br /><br />
   Customer Amount:
   <input
     [ngModelOptions]="{standalone: true}"
-    [(ngModel)]="customer.customerAmount"
+    [(ngModel)]="customer.Amount"
     type="text"
   />
   <br /><br />
@@ -47,15 +47,7 @@
     Name is Required!
   </div>
 </form>
-<table>
-  <tr>
-    <td>Customer Code</td>
-    <td>Customer Name</td>
-    <td>Customer Amount</td>
-  </tr>
-  <tr *ngFor="let customer of customers">
-    <td>{{customer.customerCode}}</td>
-    <td>{{customer.customerName}}</td>
-    <td>{{customer.customerAmount}}</td>
-  </tr>
-</table>
+<grid
+  [grid-cols]="[{'colName': 'Code'}, {'colName': 'Name'}, {'colName': 'Amount'}]"
+  [grid-data]="customers"
+></grid>

@@ -1,0 +1,8 @@
+<table>
+  <tr>
+    <td *ngFor="let col of gridCols">{{col.colName}}</td>
+  </tr>
+  <tr *ngFor="let data of gridData">
+    <td *ngFor="let key of gridCols">{{data[key.colName]}}</td>
+  </tr>
+</table>

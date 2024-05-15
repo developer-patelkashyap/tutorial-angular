@@ -10,8 +10,10 @@ import { RouterModule } from '@angular/router';
 import { routes } from './customer.routing';
 
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { GridComponent } from '../common/grid/grid.component';
 @NgModule({
-  declarations: [CustomerComponent],
+  declarations: [CustomerComponent, GridComponent],
   imports: [
     CommonModule,
     FormsModule,

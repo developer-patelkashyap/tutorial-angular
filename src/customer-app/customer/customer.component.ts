@@ -12,9 +12,12 @@ export class CustomerComponent {
   add() {
     this.customers.push(this.customer);
     this.customer = new Customer();
+    console.log(this.customers);
   }
 
   hasError(typeOfValidator: string, controlName: string): boolean {
-    return this.customer.customerFormGroup.controls[controlName].hasError(typeOfValidator);
+    return this.customer.customerFormGroup.controls[controlName].hasError(
+      typeOfValidator
+    );
   }
 }
