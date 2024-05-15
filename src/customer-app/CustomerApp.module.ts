@@ -10,10 +10,29 @@ import { RouterModule } from '@angular/router';
 
 import { routes } from './CustomerApp.routing';
 
+import {
+  BaseLogger,
+  ConsoleLogger,
+  ErrorLogger,
+} from './utility/logger.provider';
+
 @NgModule({
   declarations: [MasterComponent, HomeComponent],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
-  providers: [],
+  providers: [
+    {
+      provide: BaseLogger,
+      useClass: ConsoleLogger,
+    },
+    {
+      provide: '1',
+      useClass: ErrorLogger,
+    },
+    {
+      provide: '2',
+      useClass: ConsoleLogger,
+    },
+  ],
   bootstrap: [MasterComponent],
 })
 export class CustomerAppModule {}

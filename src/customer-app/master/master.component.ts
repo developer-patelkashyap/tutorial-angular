@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseLogger } from '../utility/logger.provider';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MasterComponent {
   title = 'Customer Application';
+  logger!: BaseLogger;
+
+  constructor(_logger: BaseLogger) {
+    this.logger = _logger;
+    this.logger.log();
+  }
 }
