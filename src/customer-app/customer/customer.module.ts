@@ -9,9 +9,15 @@ import { RouterModule } from '@angular/router';
 
 import { routes } from './customer.routing';
 
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [CustomerComponent],
-  imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [CustomerComponent],
 })

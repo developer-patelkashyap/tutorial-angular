@@ -1,16 +1,61 @@
-Customer Code: <input [(ngModel)]="customer.customerCode" type="text"> <br><br>
-Customer Name: <input [(ngModel)]="customer.customerName" type="text"> <br><br>
-Customer Amount: <input [(ngModel)]="customer.customerAmount" type="text"> <br><br>
-<input type="button" value="Add" (click)="add()"> <br><br>
+<form [formGroup]="customer.customerFormGroup">
+  <br /><br />
+  Customer Code:
+  <input
+    formControlName="CustomerCodeControl"
+    [(ngModel)]="customer.customerCode"
+    type="text"
+  />
+  <br /><br />
+  Customer Name:
+  <input
+    formControlName="CustomerNameControl"
+    [(ngModel)]="customer.customerName"
+    type="text"
+  />
+  <br /><br />
+  Customer Amount:
+  <input
+    [ngModelOptions]="{standalone: true}"
+    [(ngModel)]="customer.customerAmount"
+    type="text"
+  />
+  <br /><br />
+  <input
+    [disabled]="!(customer.customerFormGroup.valid)"
+    type="button"
+    value="Add"
+    (click)="add()"
+  />
+  <br /><br />
+  <div
+    *ngIf="customer.customerFormGroup.dirty"
+    [hidden]="!(hasError('pattern', 'CustomerCodeControl'))"
+  >
+    Code Format is Invalid.
+  </div>
+  <div
+    *ngIf="customer.customerFormGroup.dirty"
+    [hidden]="!(hasError('required', 'CustomerCodeControl'))"
+  >
+    Code is Required!
+  </div>
+  <div
+    *ngIf="customer.customerFormGroup.dirty"
+    [hidden]="!(hasError('required', 'CustomerNameControl'))"
+  >
+    Name is Required!
+  </div>
+</form>
 <table>
-    <tr>
-        <td>Customer Code</td>
-        <td>Customer Name</td>
-        <td>Customer Amount</td>
-    </tr>
-    <tr *ngFor="let customer of customers">
-        <td>{{customer.customerCode}}</td>
-        <td>{{customer.customerName}}</td>
-        <td>{{customer.customerAmount}}</td>
-    </tr>
+  <tr>
+    <td>Customer Code</td>
+    <td>Customer Name</td>
+    <td>Customer Amount</td>
+  </tr>
+  <tr *ngFor="let customer of customers">
+    <td>{{customer.customerCode}}</td>
+    <td>{{customer.customerName}}</td>
+    <td>{{customer.customerAmount}}</td>
+  </tr>
 </table>
