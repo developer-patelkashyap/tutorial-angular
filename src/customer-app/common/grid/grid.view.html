@@ -4,5 +4,8 @@
   </tr>
   <tr *ngFor="let data of gridData">
     <td *ngFor="let key of gridCols">{{data[key.colName]}}</td>
+    <td>
+      <a (click)="select(data)" [routerLink]="['/customer/add']">Select</a>
+    </td>
   </tr>
 </table>

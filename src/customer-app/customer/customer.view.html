@@ -50,4 +50,5 @@
 <grid
   [grid-cols]="[{'colName': 'Code'}, {'colName': 'Name'}, {'colName': 'Amount'}]"
   [grid-data]="customers"
+  (grid-selected)="setSelectedCustomer($event)"
 ></grid>

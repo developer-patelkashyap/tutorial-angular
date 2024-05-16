@@ -17,4 +17,10 @@ export class GridComponent {
   set setGridData(_gridData: Array<any>) {
     this.gridData = _gridData;
   }
+
+  @Output('grid-selected')
+  eventEmitter: EventEmitter<any> = new EventEmitter<any>();
+  select(_selected: any) {
+    this.eventEmitter.emit(_selected);
+  }
 }

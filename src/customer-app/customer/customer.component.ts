@@ -20,4 +20,8 @@ export class CustomerComponent {
       typeOfValidator
     );
   }
+
+  setSelectedCustomer(_selected: Customer) {
+    this.customer = _selected;
+  }
 }
