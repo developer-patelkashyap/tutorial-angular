@@ -28,6 +28,13 @@
     (click)="add()"
   />
   <br /><br />
+  <input
+    [disabled]="!(customer.customerFormGroup.valid)"
+    type="button"
+    value="Send To Server"
+    (click)="addToServer()"
+  />
+  <br /><br />
   <div
     *ngIf="customer.customerFormGroup.dirty"
     [hidden]="!(hasError('pattern', 'CustomerCodeControl'))"

@@ -31,3 +31,9 @@ export class Customer {
     );
   }
 }
+
+export class CustomerDTO {
+  Code: string = '';
+  Name: string = '';
+  Amount: number = 0;
+}

@@ -12,6 +12,10 @@ import { routes } from './customer.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { GridComponent } from '../common/grid/grid.component';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { CustomerInterceptor } from '../interceptors/customer.interceptor';
 @NgModule({
   declarations: [CustomerComponent, GridComponent],
   imports: [
@@ -19,8 +23,11 @@ import { GridComponent } from '../common/grid/grid.component';
     FormsModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CustomerInterceptor, multi: true },
+  ],
   bootstrap: [CustomerComponent],
 })
 export class CustomerModule {}

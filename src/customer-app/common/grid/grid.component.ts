@@ -22,5 +22,6 @@ export class GridComponent {
   eventEmitter: EventEmitter<any> = new EventEmitter<any>();
   select(_selected: any) {
     this.eventEmitter.emit(_selected);
+    console.log(_selected);
   }
 }
